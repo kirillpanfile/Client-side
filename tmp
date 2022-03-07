@@ -1,0 +1,39 @@
+const app = {
+    id: document.getElementById("app"),
+    images: fetch("https://picsum.photos/v2/list?page=1&limit=5"),
+    random: (num) => Math.floor(Math.random() * num),
+    button: document.getElementById("rand"),
+    ans: document.getElementById("ans"),
+    imgId: document.getElementById("imgById"),
+    rs: 0,
+    dimensions: ['100', '150', '200', '250', '300'],
+    list: document.getElementById("list"),
+    size: 300
+};
+(async function () {
+    let count = 0;
+    const data = await app.images
+    const response = await data.json()
+    for (const element of response) {
+        app.id.innerHTML += `<img src="${element.download_url}" class="img" id="${count}">`
+        count++
+    }
+    document.querySelectorAll(".img").forEach(el => el.style.width = app.size + "px")
+    app.button.addEventListener("click", () => {
+        app.rs = app.random(5)
+        app.ans.innerText = app.rs
+    })
+    document.getElementById("newImg").addEventListener("click", () => {
+        app.imgId.innerHTML = `<img src="${document.getElementById(app.rs).src}" class="img" id="${app.rs}" style="width:300px;">`
+    });
+    for (const element of app.dimensions) {
+        app.list.innerHTML += `<button>${element}</button>`
+        app.list.childNodes.forEach((button) => {
+            button.addEventListener("click", () => {
+                app.size = +button.innerText
+                document.querySelectorAll(".img").forEach(el => el.style.width = app.size + "px")
+            })
+
+        })
+    }
+})()
