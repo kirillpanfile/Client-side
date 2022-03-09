@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #fff;
+            height: 100vh;
+        }
+        form {
+            background-color: wheat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        form >input {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="" onselect="input_select()" placeholder="nume"  id="nume">
+        <input type="text" name="" onselect="input_select()" placeholder="prenume" id="prenume">
+        <input type="text" name="" placeholder="email" onkeypress="em(event)" id="email">
+        <input type="text" name="" placeholder="telefon" onchange="phone(event)" id="telefon">
+        <input type="checkbox" onclick="f()" name="" id="">
+        <input type="radio" onclick="f()" name="radio" id="radio">
+        <input type="file" onsubmit="alert('ati adaugat file')" name="" id="">
+    </form>
+    <script src="./index.js"></script>
+</body>
+</html>
